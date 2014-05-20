@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.gmf.varbox.database/src" modelPluginID="org.eclipse.gmf.varbox.database"
+    modelName="Database" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>database.ecore</foreignModel>
+  <genPackages prefix="Database" disposableProviderFactory="true" ecorePackage="database.ecore#/">
+    <genClasses ecoreClass="database.ecore#//Scheme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Scheme/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Scheme/tables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Scheme/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="database.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Table/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="database.ecore#//PrimaryKey"/>
+    <genClasses ecoreClass="database.ecore#//NotNull"/>
+    <genClasses ecoreClass="database.ecore#//ForeignKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference database.ecore#//ForeignKey/refTable"/>
+    </genClasses>
+    <genClasses ecoreClass="database.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Column/name"/>
+    </genClasses>
+    <genClasses ecoreClass="database.ecore#//Normal"/>
+  </genPackages>
+</genmodel:GenModel>
