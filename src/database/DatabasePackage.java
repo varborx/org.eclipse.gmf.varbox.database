@@ -298,13 +298,22 @@ public interface DatabasePackage extends EPackage {
 	int FOREIGN_KEY__NAME = COLUMN__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Refer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__REFER = COLUMN_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
+	int FOREIGN_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Foreign Key</em>' class.
@@ -470,6 +479,17 @@ public interface DatabasePackage extends EPackage {
 	EClass getForeignKey();
 
 	/**
+	 * Returns the meta object for the reference '{@link database.ForeignKey#getRefer <em>Refer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Refer</em>'.
+	 * @see database.ForeignKey#getRefer()
+	 * @see #getForeignKey()
+	 * @generated
+	 */
+	EReference getForeignKey_Refer();
+
+	/**
 	 * Returns the meta object for class '{@link database.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,6 +640,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EClass FOREIGN_KEY = eINSTANCE.getForeignKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Refer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOREIGN_KEY__REFER = eINSTANCE.getForeignKey_Refer();
 
 		/**
 		 * The meta object literal for the '{@link database.impl.ColumnImpl <em>Column</em>}' class.

@@ -47,6 +47,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ForeignKeyRefer"
+          description="Create new ForeignKeyRefer">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="NormalColumn"
           description="Create new NormalColumn">
         <smallIcon

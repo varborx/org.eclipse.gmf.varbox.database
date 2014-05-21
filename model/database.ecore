@@ -35,7 +35,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryKey" eSuperTypes="#//Column"/>
   <eClassifiers xsi:type="ecore:EClass" name="NotNull" eSuperTypes="#//Column"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ForeignKey" eSuperTypes="#//Column"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ForeignKey" eSuperTypes="#//Column">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refer" lowerBound="1" eType="#//PrimaryKey"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

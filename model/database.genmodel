@@ -18,7 +18,9 @@
     </genClasses>
     <genClasses ecoreClass="database.ecore#//PrimaryKey"/>
     <genClasses ecoreClass="database.ecore#//NotNull"/>
-    <genClasses ecoreClass="database.ecore#//ForeignKey"/>
+    <genClasses ecoreClass="database.ecore#//ForeignKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference database.ecore#//ForeignKey/refer"/>
+    </genClasses>
     <genClasses ecoreClass="database.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Column/name"/>
     </genClasses>
