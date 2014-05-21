@@ -141,13 +141,22 @@ public interface DatabasePackage extends EPackage {
 	int TABLE__COLUMNS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Primary</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__PRIMARY = 2;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 2;
+	int TABLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -289,22 +298,13 @@ public interface DatabasePackage extends EPackage {
 	int FOREIGN_KEY__NAME = COLUMN__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Ref Table</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREIGN_KEY__REF_TABLE = COLUMN_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 1;
+	int FOREIGN_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Foreign Key</em>' class.
@@ -316,14 +316,14 @@ public interface DatabasePackage extends EPackage {
 	int FOREIGN_KEY_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link database.impl.NormalImpl <em>Normal</em>}' class.
+	 * The meta object id for the '{@link database.impl.NormalColumnImpl <em>Normal Column</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see database.impl.NormalImpl
-	 * @see database.impl.DatabasePackageImpl#getNormal()
+	 * @see database.impl.NormalColumnImpl
+	 * @see database.impl.DatabasePackageImpl#getNormalColumn()
 	 * @generated
 	 */
-	int NORMAL = 6;
+	int NORMAL_COLUMN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -332,25 +332,25 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NORMAL__NAME = COLUMN__NAME;
+	int NORMAL_COLUMN__NAME = COLUMN__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Normal</em>' class.
+	 * The number of structural features of the '<em>Normal Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NORMAL_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
+	int NORMAL_COLUMN_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Normal</em>' class.
+	 * The number of operations of the '<em>Normal Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NORMAL_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
+	int NORMAL_COLUMN_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
 
 
 	/**
@@ -429,6 +429,17 @@ public interface DatabasePackage extends EPackage {
 	EReference getTable_Columns();
 
 	/**
+	 * Returns the meta object for the reference '{@link database.Table#getPrimary <em>Primary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Primary</em>'.
+	 * @see database.Table#getPrimary()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Primary();
+
+	/**
 	 * Returns the meta object for class '{@link database.PrimaryKey <em>Primary Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,17 +470,6 @@ public interface DatabasePackage extends EPackage {
 	EClass getForeignKey();
 
 	/**
-	 * Returns the meta object for the reference list '{@link database.ForeignKey#getRefTable <em>Ref Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Ref Table</em>'.
-	 * @see database.ForeignKey#getRefTable()
-	 * @see #getForeignKey()
-	 * @generated
-	 */
-	EReference getForeignKey_RefTable();
-
-	/**
 	 * Returns the meta object for class '{@link database.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -491,14 +491,14 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getColumn_Name();
 
 	/**
-	 * Returns the meta object for class '{@link database.Normal <em>Normal</em>}'.
+	 * Returns the meta object for class '{@link database.NormalColumn <em>Normal Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Normal</em>'.
-	 * @see database.Normal
+	 * @return the meta object for class '<em>Normal Column</em>'.
+	 * @see database.NormalColumn
 	 * @generated
 	 */
-	EClass getNormal();
+	EClass getNormalColumn();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -584,6 +584,14 @@ public interface DatabasePackage extends EPackage {
 		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Primary</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__PRIMARY = eINSTANCE.getTable_Primary();
+
+		/**
 		 * The meta object literal for the '{@link database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -614,14 +622,6 @@ public interface DatabasePackage extends EPackage {
 		EClass FOREIGN_KEY = eINSTANCE.getForeignKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref Table</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FOREIGN_KEY__REF_TABLE = eINSTANCE.getForeignKey_RefTable();
-
-		/**
 		 * The meta object literal for the '{@link database.impl.ColumnImpl <em>Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -640,14 +640,14 @@ public interface DatabasePackage extends EPackage {
 		EAttribute COLUMN__NAME = eINSTANCE.getColumn_Name();
 
 		/**
-		 * The meta object literal for the '{@link database.impl.NormalImpl <em>Normal</em>}' class.
+		 * The meta object literal for the '{@link database.impl.NormalColumnImpl <em>Normal Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see database.impl.NormalImpl
-		 * @see database.impl.DatabasePackageImpl#getNormal()
+		 * @see database.impl.NormalColumnImpl
+		 * @see database.impl.DatabasePackageImpl#getNormalColumn()
 		 * @generated
 		 */
-		EClass NORMAL = eINSTANCE.getNormal();
+		EClass NORMAL_COLUMN = eINSTANCE.getNormalColumn();
 
 	}
 

@@ -105,10 +105,10 @@ public class DatabaseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatabasePackage.NORMAL: {
-				Normal normal = (Normal)theEObject;
-				T result = caseNormal(normal);
-				if (result == null) result = caseColumn(normal);
+			case DatabasePackage.NORMAL_COLUMN: {
+				NormalColumn normalColumn = (NormalColumn)theEObject;
+				T result = caseNormalColumn(normalColumn);
+				if (result == null) result = caseColumn(normalColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,17 +207,17 @@ public class DatabaseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Normal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Normal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Column</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNormal(Normal object) {
+	public T caseNormalColumn(NormalColumn object) {
 		return null;
 	}
 

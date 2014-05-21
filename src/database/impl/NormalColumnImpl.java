@@ -3,26 +3,26 @@
 package database.impl;
 
 import database.DatabasePackage;
-import database.Normal;
+import database.NormalColumn;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Normal</b></em>'.
+ * An implementation of the model object '<em><b>Normal Column</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class NormalImpl extends ColumnImpl implements Normal {
+public class NormalColumnImpl extends ColumnImpl implements NormalColumn {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NormalImpl() {
+	protected NormalColumnImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class NormalImpl extends ColumnImpl implements Normal {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatabasePackage.Literals.NORMAL;
+		return DatabasePackage.Literals.NORMAL_COLUMN;
 	}
 
-} //NormalImpl
+} //NormalColumnImpl

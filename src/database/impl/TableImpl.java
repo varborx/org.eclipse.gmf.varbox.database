@@ -4,6 +4,7 @@ package database.impl;
 
 import database.Column;
 import database.DatabasePackage;
+import database.PrimaryKey;
 import database.Table;
 
 import java.util.Collection;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link database.impl.TableImpl#getName <em>Name</em>}</li>
  *   <li>{@link database.impl.TableImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link database.impl.TableImpl#getPrimary <em>Primary</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +68,16 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * @ordered
 	 */
 	protected EList<Column> columns;
+
+	/**
+	 * The cached value of the '{@link #getPrimary() <em>Primary</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimary()
+	 * @generated
+	 * @ordered
+	 */
+	protected PrimaryKey primary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +136,44 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PrimaryKey getPrimary() {
+		if (primary != null && primary.eIsProxy()) {
+			InternalEObject oldPrimary = (InternalEObject)primary;
+			primary = (PrimaryKey)eResolveProxy(oldPrimary);
+			if (primary != oldPrimary) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatabasePackage.TABLE__PRIMARY, oldPrimary, primary));
+			}
+		}
+		return primary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimaryKey basicGetPrimary() {
+		return primary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrimary(PrimaryKey newPrimary) {
+		PrimaryKey oldPrimary = primary;
+		primary = newPrimary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.TABLE__PRIMARY, oldPrimary, primary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +195,9 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 				return getName();
 			case DatabasePackage.TABLE__COLUMNS:
 				return getColumns();
+			case DatabasePackage.TABLE__PRIMARY:
+				if (resolve) return getPrimary();
+				return basicGetPrimary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +218,9 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends Column>)newValue);
 				return;
+			case DatabasePackage.TABLE__PRIMARY:
+				setPrimary((PrimaryKey)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +239,9 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 			case DatabasePackage.TABLE__COLUMNS:
 				getColumns().clear();
 				return;
+			case DatabasePackage.TABLE__PRIMARY:
+				setPrimary((PrimaryKey)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +258,8 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DatabasePackage.TABLE__COLUMNS:
 				return columns != null && !columns.isEmpty();
+			case DatabasePackage.TABLE__PRIMARY:
+				return primary != null;
 		}
 		return super.eIsSet(featureID);
 	}

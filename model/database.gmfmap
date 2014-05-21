@@ -7,6 +7,46 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
+        href="database.ecore#//Scheme/columns"/>
+    <ownedChild>
+      <domainMetaElement
+          href="database.ecore#//NormalColumn"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="database.gmfgraph#NormalColumnName"/>
+        <features
+            href="database.ecore#//Column/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="database.gmftool#//@palette/@tools.0/@tools.4"/>
+      <diagramNode
+          href="database.gmfgraph#NormalColumn"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="database.ecore#//Scheme/columns"/>
+    <ownedChild>
+      <domainMetaElement
+          href="database.ecore#//ForeignKey"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="database.gmfgraph#ForeignKeyName"/>
+        <features
+            href="database.ecore#//Column/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="database.gmftool#//@palette/@tools.0/@tools.3"/>
+      <diagramNode
+          href="database.gmfgraph#ForeignKey"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
         href="database.ecore#//Scheme/tables"/>
     <ownedChild>
       <domainMetaElement
@@ -18,25 +58,39 @@
         <features
             href="database.ecore#//Table/name"/>
       </labelMappings>
-      <labelMappings>
-        <diagramLabel
-            href="database.gmfgraph#TableName"/>
-      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="database.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="database.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="database.gmfgraph#Table"/>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0"
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
           referencedChild="//@nodes.1/@ownedChild">
         <containmentFeature
             href="database.ecore#//Table/columns"/>
       </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild">
+        <containmentFeature
+            href="database.ecore#//Table/columns"/>
+      </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.3/@ownedChild">
+        <containmentFeature
+            href="database.ecore#//Table/columns"/>
+      </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.4/@ownedChild">
+        <containmentFeature
+            href="database.ecore#//Table/columns"/>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1 //@nodes.2/@ownedChild/@children.2 //@nodes.2/@ownedChild/@children.3">
         <compartment
-            href="database.gmfgraph#NormalCompartment"/>
+            href="database.gmfgraph#TableCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -45,23 +99,39 @@
         href="database.ecore#//Scheme/columns"/>
     <ownedChild>
       <domainMetaElement
-          href="database.ecore#//Normal"/>
+          href="database.ecore#//NotNull"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="database.gmfgraph#NormalName"/>
+            href="database.gmfgraph#NotNullName"/>
         <features
             href="database.ecore#//Column/name"/>
       </labelMappings>
-      <labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="database.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="database.gmfgraph#NotNull"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="database.ecore#//Scheme/columns"/>
+    <ownedChild>
+      <domainMetaElement
+          href="database.ecore#//PrimaryKey"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="database.gmfgraph#NormalName"/>
+            href="database.gmfgraph#PrimaryKeyName"/>
+        <features
+            href="database.ecore#//Column/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="database.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="database.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="database.gmfgraph#Normal"/>
+          href="database.gmfgraph#PrimaryKey"/>
     </ownedChild>
   </nodes>
   <diagram>

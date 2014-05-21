@@ -6,7 +6,7 @@ import database.Column;
 import database.DatabaseFactory;
 import database.DatabasePackage;
 import database.ForeignKey;
-import database.Normal;
+import database.NormalColumn;
 import database.NotNull;
 import database.PrimaryKey;
 import database.Scheme;
@@ -76,7 +76,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass normalEClass = null;
+	private EClass normalColumnEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -216,6 +216,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTable_Primary() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPrimaryKey() {
 		return primaryKeyEClass;
 	}
@@ -243,15 +252,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getForeignKey_RefTable() {
-		return (EReference)foreignKeyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -270,8 +270,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNormal() {
-		return normalEClass;
+	public EClass getNormalColumn() {
+		return normalColumnEClass;
 	}
 
 	/**
@@ -310,18 +310,18 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__NAME);
 		createEReference(tableEClass, TABLE__COLUMNS);
+		createEReference(tableEClass, TABLE__PRIMARY);
 
 		primaryKeyEClass = createEClass(PRIMARY_KEY);
 
 		notNullEClass = createEClass(NOT_NULL);
 
 		foreignKeyEClass = createEClass(FOREIGN_KEY);
-		createEReference(foreignKeyEClass, FOREIGN_KEY__REF_TABLE);
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__NAME);
 
-		normalEClass = createEClass(NORMAL);
+		normalColumnEClass = createEClass(NORMAL_COLUMN);
 	}
 
 	/**
@@ -355,7 +355,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		primaryKeyEClass.getESuperTypes().add(this.getColumn());
 		notNullEClass.getESuperTypes().add(this.getColumn());
 		foreignKeyEClass.getESuperTypes().add(this.getColumn());
-		normalEClass.getESuperTypes().add(this.getColumn());
+		normalColumnEClass.getESuperTypes().add(this.getColumn());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(schemeEClass, Scheme.class, "Scheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -366,18 +366,18 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Primary(), this.getPrimaryKey(), null, "primary", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primaryKeyEClass, PrimaryKey.class, "PrimaryKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(notNullEClass, NotNull.class, "NotNull", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getForeignKey_RefTable(), this.getTable(), null, "refTable", null, 0, -1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(normalEClass, Normal.class, "Normal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(normalColumnEClass, NormalColumn.class, "NormalColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

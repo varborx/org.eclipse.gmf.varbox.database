@@ -62,7 +62,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.NOT_NULL: return createNotNull();
 			case DatabasePackage.FOREIGN_KEY: return createForeignKey();
 			case DatabasePackage.COLUMN: return createColumn();
-			case DatabasePackage.NORMAL: return createNormal();
+			case DatabasePackage.NORMAL_COLUMN: return createNormalColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -133,9 +133,9 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Normal createNormal() {
-		NormalImpl normal = new NormalImpl();
-		return normal;
+	public NormalColumn createNormalColumn() {
+		NormalColumnImpl normalColumn = new NormalColumnImpl();
+		return normalColumn;
 	}
 
 	/**

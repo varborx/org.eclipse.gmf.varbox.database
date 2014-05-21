@@ -98,8 +98,8 @@ public class DatabaseValidator extends EObjectValidator {
 				return validateForeignKey((ForeignKey)value, diagnostics, context);
 			case DatabasePackage.COLUMN:
 				return validateColumn((Column)value, diagnostics, context);
-			case DatabasePackage.NORMAL:
-				return validateNormal((Normal)value, diagnostics, context);
+			case DatabasePackage.NORMAL_COLUMN:
+				return validateNormalColumn((NormalColumn)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -272,8 +272,8 @@ public class DatabaseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNormal(Normal normal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(normal, diagnostics, context);
+	public boolean validateNormalColumn(NormalColumn normalColumn, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(normalColumn, diagnostics, context);
 	}
 
 	/**

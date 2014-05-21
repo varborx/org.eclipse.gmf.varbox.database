@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link database.Table#getName <em>Name</em>}</li>
  *   <li>{@link database.Table#getColumns <em>Columns</em>}</li>
+ *   <li>{@link database.Table#getPrimary <em>Primary</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,5 +67,31 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	EList<Column> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Primary</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Primary</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Primary</em>' reference.
+	 * @see #setPrimary(PrimaryKey)
+	 * @see database.DatabasePackage#getTable_Primary()
+	 * @model required="true"
+	 * @generated
+	 */
+	PrimaryKey getPrimary();
+
+	/**
+	 * Sets the value of the '{@link database.Table#getPrimary <em>Primary</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary</em>' reference.
+	 * @see #getPrimary()
+	 * @generated
+	 */
+	void setPrimary(PrimaryKey value);
 
 } // Table

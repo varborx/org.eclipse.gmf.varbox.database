@@ -76,13 +76,13 @@ public interface DatabaseFactory extends EFactory {
 	Column createColumn();
 
 	/**
-	 * Returns a new object of class '<em>Normal</em>'.
+	 * Returns a new object of class '<em>Normal Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal</em>'.
+	 * @return a new object of class '<em>Normal Column</em>'.
 	 * @generated
 	 */
-	Normal createNormal();
+	NormalColumn createNormalColumn();
 
 	/**
 	 * Returns the package supported by this factory.

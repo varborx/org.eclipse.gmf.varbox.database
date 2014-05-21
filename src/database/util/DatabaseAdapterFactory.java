@@ -92,8 +92,8 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 				return createColumnAdapter();
 			}
 			@Override
-			public Adapter caseNormal(Normal object) {
-				return createNormalAdapter();
+			public Adapter caseNormalColumn(NormalColumn object) {
+				return createNormalColumnAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -200,16 +200,16 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link database.Normal <em>Normal</em>}'.
+	 * Creates a new adapter for an object of class '{@link database.NormalColumn <em>Normal Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see database.Normal
+	 * @see database.NormalColumn
 	 * @generated
 	 */
-	public Adapter createNormalAdapter() {
+	public Adapter createNormalColumnAdapter() {
 		return null;
 	}
 
