@@ -94,8 +94,6 @@ public class DatabaseValidator extends EObjectValidator {
 				return validatePrimaryKey((PrimaryKey)value, diagnostics, context);
 			case DatabasePackage.NOT_NULL:
 				return validateNotNull((NotNull)value, diagnostics, context);
-			case DatabasePackage.FOREIGN_KEY:
-				return validateForeignKey((ForeignKey)value, diagnostics, context);
 			case DatabasePackage.COLUMN:
 				return validateColumn((Column)value, diagnostics, context);
 			case DatabasePackage.NORMAL_COLUMN:
@@ -169,7 +167,6 @@ public class DatabaseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(table, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(table, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTable_uniqueColumnName(table, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTable_uniquePrimaryKey(table, diagnostics, context);
 		return result;
 	}
 
@@ -203,35 +200,6 @@ public class DatabaseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the uniquePrimaryKey constraint of '<em>Table</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String TABLE__UNIQUE_PRIMARY_KEY__EEXPRESSION = "primary->size() = 1";
-
-	/**
-	 * Validates the uniquePrimaryKey constraint of '<em>Table</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTable_uniquePrimaryKey(Table table, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DatabasePackage.Literals.TABLE,
-				 table,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "uniquePrimaryKey",
-				 TABLE__UNIQUE_PRIMARY_KEY__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -247,15 +215,6 @@ public class DatabaseValidator extends EObjectValidator {
 	 */
 	public boolean validateNotNull(NotNull notNull, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(notNull, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateForeignKey(ForeignKey foreignKey, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(foreignKey, diagnostics, context);
 	}
 
 	/**

@@ -84,10 +84,6 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 				return createNotNullAdapter();
 			}
 			@Override
-			public Adapter caseForeignKey(ForeignKey object) {
-				return createForeignKeyAdapter();
-			}
-			@Override
 			public Adapter caseColumn(Column object) {
 				return createColumnAdapter();
 			}
@@ -168,20 +164,6 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNotNullAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link database.ForeignKey <em>Foreign Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see database.ForeignKey
-	 * @generated
-	 */
-	public Adapter createForeignKeyAdapter() {
 		return null;
 	}
 

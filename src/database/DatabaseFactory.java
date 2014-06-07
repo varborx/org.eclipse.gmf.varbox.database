@@ -58,15 +58,6 @@ public interface DatabaseFactory extends EFactory {
 	NotNull createNotNull();
 
 	/**
-	 * Returns a new object of class '<em>Foreign Key</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Foreign Key</em>'.
-	 * @generated
-	 */
-	ForeignKey createForeignKey();
-
-	/**
 	 * Returns a new object of class '<em>Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

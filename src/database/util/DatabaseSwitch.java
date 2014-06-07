@@ -92,13 +92,6 @@ public class DatabaseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatabasePackage.FOREIGN_KEY: {
-				ForeignKey foreignKey = (ForeignKey)theEObject;
-				T result = caseForeignKey(foreignKey);
-				if (result == null) result = caseColumn(foreignKey);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatabasePackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T result = caseColumn(column);
@@ -173,21 +166,6 @@ public class DatabaseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNotNull(NotNull object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Foreign Key</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Foreign Key</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseForeignKey(ForeignKey object) {
 		return null;
 	}
 

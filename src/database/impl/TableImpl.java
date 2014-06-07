@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -70,14 +71,14 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	protected EList<Column> columns;
 
 	/**
-	 * The cached value of the '{@link #getPrimary() <em>Primary</em>}' reference.
+	 * The cached value of the '{@link #getPrimary() <em>Primary</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrimary()
 	 * @generated
 	 * @ordered
 	 */
-	protected PrimaryKey primary;
+	protected EList<PrimaryKey> primary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,37 +137,11 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimaryKey getPrimary() {
-		if (primary != null && primary.eIsProxy()) {
-			InternalEObject oldPrimary = (InternalEObject)primary;
-			primary = (PrimaryKey)eResolveProxy(oldPrimary);
-			if (primary != oldPrimary) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatabasePackage.TABLE__PRIMARY, oldPrimary, primary));
-			}
+	public EList<PrimaryKey> getPrimary() {
+		if (primary == null) {
+			primary = new EObjectResolvingEList<PrimaryKey>(PrimaryKey.class, this, DatabasePackage.TABLE__PRIMARY);
 		}
 		return primary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimaryKey basicGetPrimary() {
-		return primary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrimary(PrimaryKey newPrimary) {
-		PrimaryKey oldPrimary = primary;
-		primary = newPrimary;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.TABLE__PRIMARY, oldPrimary, primary));
 	}
 
 	/**
@@ -196,8 +171,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 			case DatabasePackage.TABLE__COLUMNS:
 				return getColumns();
 			case DatabasePackage.TABLE__PRIMARY:
-				if (resolve) return getPrimary();
-				return basicGetPrimary();
+				return getPrimary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,7 +193,8 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 				getColumns().addAll((Collection<? extends Column>)newValue);
 				return;
 			case DatabasePackage.TABLE__PRIMARY:
-				setPrimary((PrimaryKey)newValue);
+				getPrimary().clear();
+				getPrimary().addAll((Collection<? extends PrimaryKey>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,7 +215,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 				getColumns().clear();
 				return;
 			case DatabasePackage.TABLE__PRIMARY:
-				setPrimary((PrimaryKey)null);
+				getPrimary().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -259,7 +234,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 			case DatabasePackage.TABLE__COLUMNS:
 				return columns != null && !columns.isEmpty();
 			case DatabasePackage.TABLE__PRIMARY:
-				return primary != null;
+				return primary != null && !primary.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

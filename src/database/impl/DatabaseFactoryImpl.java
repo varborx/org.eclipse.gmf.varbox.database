@@ -60,7 +60,6 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.TABLE: return createTable();
 			case DatabasePackage.PRIMARY_KEY: return createPrimaryKey();
 			case DatabasePackage.NOT_NULL: return createNotNull();
-			case DatabasePackage.FOREIGN_KEY: return createForeignKey();
 			case DatabasePackage.COLUMN: return createColumn();
 			case DatabasePackage.NORMAL_COLUMN: return createNormalColumn();
 			default:
@@ -106,16 +105,6 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	public NotNull createNotNull() {
 		NotNullImpl notNull = new NotNullImpl();
 		return notNull;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ForeignKey createForeignKey() {
-		ForeignKeyImpl foreignKey = new ForeignKeyImpl();
-		return foreignKey;
 	}
 
 	/**

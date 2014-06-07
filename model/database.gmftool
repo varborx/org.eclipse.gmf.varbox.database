@@ -38,17 +38,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ForeignKey"
-          description="Create new ForeignKey">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ForeignKeyRefer"
-          description="Create new ForeignKeyRefer">
+          title="ColumnFk"
+          description="Create new ColumnFk">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

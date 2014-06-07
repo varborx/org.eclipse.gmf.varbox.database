@@ -2,6 +2,8 @@
  */
 package database;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link database.Column#getName <em>Name</em>}</li>
+ *   <li>{@link database.Column#getFk <em>Fk</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +49,21 @@ public interface Column extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Fk</b></em>' reference list.
+	 * The list contents are of type {@link database.PrimaryKey}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fk</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fk</em>' reference list.
+	 * @see database.DatabasePackage#getColumn_Fk()
+	 * @model
+	 * @generated
+	 */
+	EList<PrimaryKey> getFk();
 
 } // Column

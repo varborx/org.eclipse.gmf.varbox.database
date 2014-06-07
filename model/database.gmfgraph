@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="database">
   <figures name="Default">
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="ForeignKeyReferTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="ColumnFkTargetDecoration"/>
     <descriptors name="TableFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="TableFigure">
         <layout xsi:type="gmfgraph:BorderLayout"/>
@@ -17,31 +17,27 @@
     </descriptors>
     <descriptors name="PrimaryKeyFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="PrimaryKeyFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
         <children xsi:type="gmfgraph:Label" name="PrimaryKeyNameFigure" text="&lt;...>"/>
       </actualFigure>
       <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="NotNullFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="NotNullFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
         <children xsi:type="gmfgraph:Label" name="NotNullNameFigure" text="&lt;...>"/>
       </actualFigure>
       <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors name="ForeignKeyFigure">
-      <actualFigure xsi:type="gmfgraph:Rectangle" name="ForeignKeyFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
-        <children xsi:type="gmfgraph:Label" name="ForeignKeyNameFigure" text="&lt;...>"/>
+    <descriptors name="ColumnFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ColumnFigure">
+        <children xsi:type="gmfgraph:Label" name="ColumnNameFigure" text="&lt;...>"/>
       </actualFigure>
       <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors name="ForeignKeyReferFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ForeignKeyReferFigure" targetDecoration="//@figures.0/@figures.0"/>
+    <descriptors name="ColumnFkFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ColumnFkFigure" targetDecoration="//@figures.0/@figures.0"/>
     </descriptors>
     <descriptors name="NormalColumnFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="NormalColumnFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
         <children xsi:type="gmfgraph:Label" name="NormalColumnNameFigure" text="&lt;...>"/>
       </actualFigure>
       <accessors figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
@@ -50,13 +46,13 @@
   <nodes name="Table" figure="TableFigure"/>
   <nodes name="PrimaryKey" figure="PrimaryKeyFigure"/>
   <nodes name="NotNull" figure="NotNullFigure"/>
-  <nodes name="ForeignKey" figure="ForeignKeyFigure"/>
+  <nodes name="Column" figure="ColumnFigure"/>
   <nodes name="NormalColumn" figure="NormalColumnFigure"/>
-  <connections name="ForeignKeyRefer" figure="ForeignKeyReferFigure"/>
+  <connections name="ColumnFk" figure="ColumnFkFigure"/>
   <compartments name="TableCompartment" figure="TableFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
   <labels name="TableName" figure="TableFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels name="PrimaryKeyName" figure="PrimaryKeyFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="NotNullName" figure="NotNullFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
-  <labels name="ForeignKeyName" figure="ForeignKeyFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="ColumnName" figure="ColumnFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels name="NormalColumnName" figure="NormalColumnFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
 </gmfgraph:Canvas>

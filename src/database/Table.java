@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see database.DatabasePackage#getTable()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueColumnName uniquePrimaryKey'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueColumnName='columns->forAll(column1, column2 | column1 <> column2 implies column1.name <> column2.name)' uniquePrimaryKey='primary->size() = 1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueColumnName'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueColumnName='columns->forAll(column1, column2 | column1 <> column2 implies column1.name <> column2.name)'"
  * @generated
  */
 public interface Table extends EObject {
@@ -69,29 +69,19 @@ public interface Table extends EObject {
 	EList<Column> getColumns();
 
 	/**
-	 * Returns the value of the '<em><b>Primary</b></em>' reference.
+	 * Returns the value of the '<em><b>Primary</b></em>' reference list.
+	 * The list contents are of type {@link database.PrimaryKey}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Primary</em>' reference isn't clear,
+	 * If the meaning of the '<em>Primary</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Primary</em>' reference.
-	 * @see #setPrimary(PrimaryKey)
+	 * @return the value of the '<em>Primary</em>' reference list.
 	 * @see database.DatabasePackage#getTable_Primary()
 	 * @model required="true"
 	 * @generated
 	 */
-	PrimaryKey getPrimary();
-
-	/**
-	 * Sets the value of the '{@link database.Table#getPrimary <em>Primary</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Primary</em>' reference.
-	 * @see #getPrimary()
-	 * @generated
-	 */
-	void setPrimary(PrimaryKey value);
+	EList<PrimaryKey> getPrimary();
 
 } // Table
