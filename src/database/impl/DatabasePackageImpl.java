@@ -5,9 +5,6 @@ package database.impl;
 import database.Column;
 import database.DatabaseFactory;
 import database.DatabasePackage;
-import database.NormalColumn;
-import database.NotNull;
-import database.PrimaryKey;
 import database.Scheme;
 import database.Table;
 
@@ -47,28 +44,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass primaryKeyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass notNullEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass columnEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass normalColumnEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -208,33 +184,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_Primary() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPrimaryKey() {
-		return primaryKeyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNotNull() {
-		return notNullEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -253,8 +202,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getColumn_Fk() {
-		return (EReference)columnEClass.getEStructuralFeatures().get(1);
+	public EAttribute getColumn_Type() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -262,8 +211,35 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNormalColumn() {
-		return normalColumnEClass;
+	public EReference getColumn_Table() {
+		return (EReference)columnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumn_NotNull() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumn_PrimaryKey() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumn_Fk() {
+		return (EReference)columnEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -302,17 +278,14 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__NAME);
 		createEReference(tableEClass, TABLE__COLUMNS);
-		createEReference(tableEClass, TABLE__PRIMARY);
-
-		primaryKeyEClass = createEClass(PRIMARY_KEY);
-
-		notNullEClass = createEClass(NOT_NULL);
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__NAME);
+		createEAttribute(columnEClass, COLUMN__TYPE);
+		createEReference(columnEClass, COLUMN__TABLE);
+		createEAttribute(columnEClass, COLUMN__NOT_NULL);
+		createEAttribute(columnEClass, COLUMN__PRIMARY_KEY);
 		createEReference(columnEClass, COLUMN__FK);
-
-		normalColumnEClass = createEClass(NORMAL_COLUMN);
 	}
 
 	/**
@@ -343,9 +316,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		primaryKeyEClass.getESuperTypes().add(this.getColumn());
-		notNullEClass.getESuperTypes().add(this.getColumn());
-		normalColumnEClass.getESuperTypes().add(this.getColumn());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(schemeEClass, Scheme.class, "Scheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -355,18 +325,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Primary(), this.getPrimaryKey(), null, "primary", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(primaryKeyEClass, PrimaryKey.class, "PrimaryKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(notNullEClass, NotNull.class, "NotNull", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTable_Columns(), this.getColumn(), this.getColumn_Table(), "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColumn_Fk(), this.getPrimaryKey(), null, "fk", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(normalColumnEClass, NormalColumn.class, "NormalColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColumn_Type(), ecorePackage.getEString(), "type", "", 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Table(), this.getTable(), this.getTable_Columns(), "table", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_NotNull(), ecorePackage.getEBoolean(), "NotNull", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_PrimaryKey(), ecorePackage.getEBoolean(), "PrimaryKey", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Fk(), this.getColumn(), null, "fk", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -405,6 +372,12 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		   source, 
 		   new String[] {
 			 "constraints", "uniqueColumnName"
+		   });			
+		addAnnotation
+		  (columnEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "FKreferPK"
 		   });	
 	}
 
@@ -427,6 +400,12 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		   source, 
 		   new String[] {
 			 "uniqueColumnName", "columns->forAll(column1, column2 | column1 <> column2 implies column1.name <> column2.name)"
+		   });			
+		addAnnotation
+		  (columnEClass, 
+		   source, 
+		   new String[] {
+			 "FKreferPK", "fk.PrimaryKey = true"
 		   });
 	}
 

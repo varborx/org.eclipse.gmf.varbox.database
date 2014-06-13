@@ -11,51 +11,11 @@
         href="database.ecore#//Scheme/columns"/>
     <ownedChild>
       <domainMetaElement
-          href="database.ecore#//NormalColumn"/>
+          href="database.ecore#//Column"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="database.gmfgraph#NormalColumnName"/>
-        <features
-            href="database.ecore#//Column/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="database.gmftool#//@palette/@tools.0/@tools.4"/>
-      <diagramNode
-          href="database.gmfgraph#NormalColumn"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="database.ecore#//Scheme/columns"/>
-    <ownedChild>
-      <domainMetaElement
-          href="database.ecore#//PrimaryKey"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="database.gmfgraph#PrimaryKeyName"/>
-        <features
-            href="database.ecore#//Column/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="database.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="database.gmfgraph#PrimaryKey"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="database.ecore#//Scheme/columns"/>
-    <ownedChild>
-      <domainMetaElement
-          href="database.ecore#//NotNull"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="database.gmfgraph#NotNullName"/>
+            href="database.gmfgraph#ColumnName"/>
         <features
             href="database.ecore#//Column/name"/>
       </labelMappings>
@@ -63,7 +23,7 @@
           xsi:type="gmftool:CreationTool"
           href="database.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
-          href="database.gmfgraph#NotNull"/>
+          href="database.gmfgraph#Column"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -85,25 +45,13 @@
       <diagramNode
           href="database.gmfgraph#Table"/>
       <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0"
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild">
         <containmentFeature
             href="database.ecore#//Table/columns"/>
       </children>
-      <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.2/@ownedChild">
-        <containmentFeature
-            href="database.ecore#//Table/columns"/>
-      </children>
-      <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.1/@ownedChild">
-        <containmentFeature
-            href="database.ecore#//Table/columns"/>
-      </children>
       <compartments
-          children="//@nodes.3/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0">
+          children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="database.gmfgraph#TableCompartment"/>
       </compartments>
@@ -112,7 +60,7 @@
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="database.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="database.gmftool#//@palette/@tools.0/@tools.1"/>
     <diagramLink
         href="database.gmfgraph#ColumnFk"/>
     <linkMetaFeature

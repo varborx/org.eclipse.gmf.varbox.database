@@ -58,10 +58,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 		switch (eClass.getClassifierID()) {
 			case DatabasePackage.SCHEME: return createScheme();
 			case DatabasePackage.TABLE: return createTable();
-			case DatabasePackage.PRIMARY_KEY: return createPrimaryKey();
-			case DatabasePackage.NOT_NULL: return createNotNull();
 			case DatabasePackage.COLUMN: return createColumn();
-			case DatabasePackage.NORMAL_COLUMN: return createNormalColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,39 +89,9 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimaryKey createPrimaryKey() {
-		PrimaryKeyImpl primaryKey = new PrimaryKeyImpl();
-		return primaryKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotNull createNotNull() {
-		NotNullImpl notNull = new NotNullImpl();
-		return notNull;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Column createColumn() {
 		ColumnImpl column = new ColumnImpl();
 		return column;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NormalColumn createNormalColumn() {
-		NormalColumnImpl normalColumn = new NormalColumnImpl();
-		return normalColumn;
 	}
 
 	/**

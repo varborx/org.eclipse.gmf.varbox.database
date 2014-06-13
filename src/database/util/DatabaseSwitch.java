@@ -78,30 +78,9 @@ public class DatabaseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatabasePackage.PRIMARY_KEY: {
-				PrimaryKey primaryKey = (PrimaryKey)theEObject;
-				T result = casePrimaryKey(primaryKey);
-				if (result == null) result = caseColumn(primaryKey);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatabasePackage.NOT_NULL: {
-				NotNull notNull = (NotNull)theEObject;
-				T result = caseNotNull(notNull);
-				if (result == null) result = caseColumn(notNull);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatabasePackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T result = caseColumn(column);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatabasePackage.NORMAL_COLUMN: {
-				NormalColumn normalColumn = (NormalColumn)theEObject;
-				T result = caseNormalColumn(normalColumn);
-				if (result == null) result = caseColumn(normalColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,36 +119,6 @@ public class DatabaseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Primary Key</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Primary Key</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePrimaryKey(PrimaryKey object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Not Null</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Not Null</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNotNull(NotNull object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -181,21 +130,6 @@ public class DatabaseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumn(Column object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Normal Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Normal Column</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNormalColumn(NormalColumn object) {
 		return null;
 	}
 

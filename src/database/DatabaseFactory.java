@@ -40,24 +40,6 @@ public interface DatabaseFactory extends EFactory {
 	Table createTable();
 
 	/**
-	 * Returns a new object of class '<em>Primary Key</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primary Key</em>'.
-	 * @generated
-	 */
-	PrimaryKey createPrimaryKey();
-
-	/**
-	 * Returns a new object of class '<em>Not Null</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Not Null</em>'.
-	 * @generated
-	 */
-	NotNull createNotNull();
-
-	/**
 	 * Returns a new object of class '<em>Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,15 +47,6 @@ public interface DatabaseFactory extends EFactory {
 	 * @generated
 	 */
 	Column createColumn();
-
-	/**
-	 * Returns a new object of class '<em>Normal Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Column</em>'.
-	 * @generated
-	 */
-	NormalColumn createNormalColumn();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -4,20 +4,23 @@ package database.impl;
 
 import database.Column;
 import database.DatabasePackage;
-import database.PrimaryKey;
+import database.Table;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link database.impl.ColumnImpl#getName <em>Name</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#isNotNull <em>Not Null</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#isPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link database.impl.ColumnImpl#getFk <em>Fk</em>}</li>
  * </ul>
  * </p>
@@ -55,6 +62,66 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNotNull() <em>Not Null</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNotNull()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NOT_NULL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNotNull() <em>Not Null</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNotNull()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean notNull = NOT_NULL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPrimaryKey() <em>Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PRIMARY_KEY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPrimaryKey() <em>Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean primaryKey = PRIMARY_KEY_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getFk() <em>Fk</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +129,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PrimaryKey> fk;
+	protected EList<Column> fk;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,11 +176,159 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PrimaryKey> getFk() {
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table getTable() {
+		if (eContainerFeatureID() != DatabasePackage.COLUMN__TABLE) return null;
+		return (Table)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTable(Table newTable, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newTable, DatabasePackage.COLUMN__TABLE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTable(Table newTable) {
+		if (newTable != eInternalContainer() || (eContainerFeatureID() != DatabasePackage.COLUMN__TABLE && newTable != null)) {
+			if (EcoreUtil.isAncestor(this, newTable))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTable != null)
+				msgs = ((InternalEObject)newTable).eInverseAdd(this, DatabasePackage.TABLE__COLUMNS, Table.class, msgs);
+			msgs = basicSetTable(newTable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__TABLE, newTable, newTable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isNotNull() {
+		return notNull;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNotNull(boolean newNotNull) {
+		boolean oldNotNull = notNull;
+		notNull = newNotNull;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__NOT_NULL, oldNotNull, notNull));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPrimaryKey() {
+		return primaryKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrimaryKey(boolean newPrimaryKey) {
+		boolean oldPrimaryKey = primaryKey;
+		primaryKey = newPrimaryKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__PRIMARY_KEY, oldPrimaryKey, primaryKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Column> getFk() {
 		if (fk == null) {
-			fk = new EObjectResolvingEList<PrimaryKey>(PrimaryKey.class, this, DatabasePackage.COLUMN__FK);
+			fk = new EObjectResolvingEList<Column>(Column.class, this, DatabasePackage.COLUMN__FK);
 		}
 		return fk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatabasePackage.COLUMN__TABLE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetTable((Table)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatabasePackage.COLUMN__TABLE:
+				return basicSetTable(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DatabasePackage.COLUMN__TABLE:
+				return eInternalContainer().eInverseRemove(this, DatabasePackage.TABLE__COLUMNS, Table.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -126,6 +341,14 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		switch (featureID) {
 			case DatabasePackage.COLUMN__NAME:
 				return getName();
+			case DatabasePackage.COLUMN__TYPE:
+				return getType();
+			case DatabasePackage.COLUMN__TABLE:
+				return getTable();
+			case DatabasePackage.COLUMN__NOT_NULL:
+				return isNotNull();
+			case DatabasePackage.COLUMN__PRIMARY_KEY:
+				return isPrimaryKey();
 			case DatabasePackage.COLUMN__FK:
 				return getFk();
 		}
@@ -144,9 +367,21 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case DatabasePackage.COLUMN__NAME:
 				setName((String)newValue);
 				return;
+			case DatabasePackage.COLUMN__TYPE:
+				setType((String)newValue);
+				return;
+			case DatabasePackage.COLUMN__TABLE:
+				setTable((Table)newValue);
+				return;
+			case DatabasePackage.COLUMN__NOT_NULL:
+				setNotNull((Boolean)newValue);
+				return;
+			case DatabasePackage.COLUMN__PRIMARY_KEY:
+				setPrimaryKey((Boolean)newValue);
+				return;
 			case DatabasePackage.COLUMN__FK:
 				getFk().clear();
-				getFk().addAll((Collection<? extends PrimaryKey>)newValue);
+				getFk().addAll((Collection<? extends Column>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,6 +397,18 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		switch (featureID) {
 			case DatabasePackage.COLUMN__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case DatabasePackage.COLUMN__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case DatabasePackage.COLUMN__TABLE:
+				setTable((Table)null);
+				return;
+			case DatabasePackage.COLUMN__NOT_NULL:
+				setNotNull(NOT_NULL_EDEFAULT);
+				return;
+			case DatabasePackage.COLUMN__PRIMARY_KEY:
+				setPrimaryKey(PRIMARY_KEY_EDEFAULT);
 				return;
 			case DatabasePackage.COLUMN__FK:
 				getFk().clear();
@@ -180,6 +427,14 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		switch (featureID) {
 			case DatabasePackage.COLUMN__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DatabasePackage.COLUMN__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case DatabasePackage.COLUMN__TABLE:
+				return getTable() != null;
+			case DatabasePackage.COLUMN__NOT_NULL:
+				return notNull != NOT_NULL_EDEFAULT;
+			case DatabasePackage.COLUMN__PRIMARY_KEY:
+				return primaryKey != PRIMARY_KEY_EDEFAULT;
 			case DatabasePackage.COLUMN__FK:
 				return fk != null && !fk.isEmpty();
 		}
@@ -198,6 +453,12 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", type: ");
+		result.append(type);
+		result.append(", NotNull: ");
+		result.append(notNull);
+		result.append(", PrimaryKey: ");
+		result.append(primaryKey);
 		result.append(')');
 		return result.toString();
 	}

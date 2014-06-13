@@ -141,22 +141,13 @@ public interface DatabasePackage extends EPackage {
 	int TABLE__COLUMNS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Primary</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__PRIMARY = 2;
-
-	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 3;
+	int TABLE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -175,7 +166,7 @@ public interface DatabasePackage extends EPackage {
 	 * @see database.impl.DatabasePackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 4;
+	int COLUMN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -187,13 +178,49 @@ public interface DatabasePackage extends EPackage {
 	int COLUMN__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TABLE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Not Null</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__NOT_NULL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Primary Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__PRIMARY_KEY = 4;
+
+	/**
 	 * The feature id for the '<em><b>Fk</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__FK = 1;
+	int COLUMN__FK = 5;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -202,7 +229,7 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 2;
+	int COLUMN_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -212,144 +239,6 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see database.impl.PrimaryKeyImpl
-	 * @see database.impl.DatabasePackageImpl#getPrimaryKey()
-	 * @generated
-	 */
-	int PRIMARY_KEY = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY__NAME = COLUMN__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fk</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY__FK = COLUMN__FK;
-
-	/**
-	 * The number of structural features of the '<em>Primary Key</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Primary Key</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link database.impl.NotNullImpl <em>Not Null</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see database.impl.NotNullImpl
-	 * @see database.impl.DatabasePackageImpl#getNotNull()
-	 * @generated
-	 */
-	int NOT_NULL = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_NULL__NAME = COLUMN__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fk</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_NULL__FK = COLUMN__FK;
-
-	/**
-	 * The number of structural features of the '<em>Not Null</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_NULL_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Not Null</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_NULL_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link database.impl.NormalColumnImpl <em>Normal Column</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see database.impl.NormalColumnImpl
-	 * @see database.impl.DatabasePackageImpl#getNormalColumn()
-	 * @generated
-	 */
-	int NORMAL_COLUMN = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NORMAL_COLUMN__NAME = COLUMN__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fk</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NORMAL_COLUMN__FK = COLUMN__FK;
-
-	/**
-	 * The number of structural features of the '<em>Normal Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NORMAL_COLUMN_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Normal Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NORMAL_COLUMN_OPERATION_COUNT = COLUMN_OPERATION_COUNT + 0;
 
 
 	/**
@@ -428,37 +317,6 @@ public interface DatabasePackage extends EPackage {
 	EReference getTable_Columns();
 
 	/**
-	 * Returns the meta object for the reference list '{@link database.Table#getPrimary <em>Primary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Primary</em>'.
-	 * @see database.Table#getPrimary()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EReference getTable_Primary();
-
-	/**
-	 * Returns the meta object for class '{@link database.PrimaryKey <em>Primary Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Primary Key</em>'.
-	 * @see database.PrimaryKey
-	 * @generated
-	 */
-	EClass getPrimaryKey();
-
-	/**
-	 * Returns the meta object for class '{@link database.NotNull <em>Not Null</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Not Null</em>'.
-	 * @see database.NotNull
-	 * @generated
-	 */
-	EClass getNotNull();
-
-	/**
 	 * Returns the meta object for class '{@link database.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -480,6 +338,50 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getColumn_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link database.Column#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see database.Column#getType()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Type();
+
+	/**
+	 * Returns the meta object for the container reference '{@link database.Column#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Table</em>'.
+	 * @see database.Column#getTable()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EReference getColumn_Table();
+
+	/**
+	 * Returns the meta object for the attribute '{@link database.Column#isNotNull <em>Not Null</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not Null</em>'.
+	 * @see database.Column#isNotNull()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_NotNull();
+
+	/**
+	 * Returns the meta object for the attribute '{@link database.Column#isPrimaryKey <em>Primary Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Primary Key</em>'.
+	 * @see database.Column#isPrimaryKey()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_PrimaryKey();
+
+	/**
 	 * Returns the meta object for the reference list '{@link database.Column#getFk <em>Fk</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,16 +391,6 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColumn_Fk();
-
-	/**
-	 * Returns the meta object for class '{@link database.NormalColumn <em>Normal Column</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Normal Column</em>'.
-	 * @see database.NormalColumn
-	 * @generated
-	 */
-	EClass getNormalColumn();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -584,34 +476,6 @@ public interface DatabasePackage extends EPackage {
 		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>Primary</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE__PRIMARY = eINSTANCE.getTable_Primary();
-
-		/**
-		 * The meta object literal for the '{@link database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see database.impl.PrimaryKeyImpl
-		 * @see database.impl.DatabasePackageImpl#getPrimaryKey()
-		 * @generated
-		 */
-		EClass PRIMARY_KEY = eINSTANCE.getPrimaryKey();
-
-		/**
-		 * The meta object literal for the '{@link database.impl.NotNullImpl <em>Not Null</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see database.impl.NotNullImpl
-		 * @see database.impl.DatabasePackageImpl#getNotNull()
-		 * @generated
-		 */
-		EClass NOT_NULL = eINSTANCE.getNotNull();
-
-		/**
 		 * The meta object literal for the '{@link database.impl.ColumnImpl <em>Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -630,22 +494,44 @@ public interface DatabasePackage extends EPackage {
 		EAttribute COLUMN__NAME = eINSTANCE.getColumn_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMN__TABLE = eINSTANCE.getColumn_Table();
+
+		/**
+		 * The meta object literal for the '<em><b>Not Null</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__NOT_NULL = eINSTANCE.getColumn_NotNull();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__PRIMARY_KEY = eINSTANCE.getColumn_PrimaryKey();
+
+		/**
 		 * The meta object literal for the '<em><b>Fk</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference COLUMN__FK = eINSTANCE.getColumn_Fk();
-
-		/**
-		 * The meta object literal for the '{@link database.impl.NormalColumnImpl <em>Normal Column</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see database.impl.NormalColumnImpl
-		 * @see database.impl.DatabasePackageImpl#getNormalColumn()
-		 * @generated
-		 */
-		EClass NORMAL_COLUMN = eINSTANCE.getNormalColumn();
 
 	}
 

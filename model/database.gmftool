@@ -20,8 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="PrimaryKey"
-          description="Create new PrimaryKey">
+          title="ForeignKeyRefer"
+          description="Create new ForeignKey">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -29,26 +29,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="NotNull"
-          description="Create new NotNull">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ColumnFk"
-          description="Create new ColumnFk">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="NormalColumn"
-          description="Create new NormalColumn">
+          title="Column"
+          description="Create new Column">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

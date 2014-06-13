@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link database.Table#getName <em>Name</em>}</li>
  *   <li>{@link database.Table#getColumns <em>Columns</em>}</li>
- *   <li>{@link database.Table#getPrimary <em>Primary</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,6 +54,7 @@ public interface Table extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link database.Column}.
+	 * It is bidirectional and its opposite is '{@link database.Column#getTable <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
@@ -63,25 +63,10 @@ public interface Table extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see database.DatabasePackage#getTable_Columns()
-	 * @model containment="true"
+	 * @see database.Column#getTable
+	 * @model opposite="table" containment="true"
 	 * @generated
 	 */
 	EList<Column> getColumns();
-
-	/**
-	 * Returns the value of the '<em><b>Primary</b></em>' reference list.
-	 * The list contents are of type {@link database.PrimaryKey}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Primary</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Primary</em>' reference list.
-	 * @see database.DatabasePackage#getTable_Primary()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<PrimaryKey> getPrimary();
 
 } // Table
