@@ -2,8 +2,6 @@
  */
 package database;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see database.DatabasePackage#getColumn()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='FKreferPK'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot FKreferPK='fk.PrimaryKey = true'"
+ * @model
  * @generated
  */
 public interface Column extends EObject {
@@ -163,19 +160,29 @@ public interface Column extends EObject {
 	void setPrimaryKey(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Fk</b></em>' reference list.
-	 * The list contents are of type {@link database.Column}.
+	 * Returns the value of the '<em><b>Fk</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fk</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Fk</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fk</em>' reference list.
+	 * @return the value of the '<em>Fk</em>' reference.
+	 * @see #setFk(Column)
 	 * @see database.DatabasePackage#getColumn_Fk()
 	 * @model
 	 * @generated
 	 */
-	EList<Column> getFk();
+	Column getFk();
+
+	/**
+	 * Sets the value of the '{@link database.Column#getFk <em>Fk</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fk</em>' reference.
+	 * @see #getFk()
+	 * @generated
+	 */
+	void setFk(Column value);
 
 } // Column

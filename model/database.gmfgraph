@@ -19,10 +19,9 @@
       <actualFigure xsi:type="gmfgraph:Rectangle" name="ColumnFigure">
         <layout xsi:type="gmfgraph:FlowLayout"/>
         <children xsi:type="gmfgraph:Label" name="ColumnNameFigure" text="&lt;...>"/>
-        <children xsi:type="gmfgraph:Label" name="ColumnTypeFigure" text="&lt;...>"/>
       </actualFigure>
       <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
-      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors/>
     </descriptors>
     <descriptors name="ColumnFkFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ColumnFkFigure" targetDecoration="//@figures.0/@figures.0"/>

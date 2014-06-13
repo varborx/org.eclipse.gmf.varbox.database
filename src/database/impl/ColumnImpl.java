@@ -6,12 +6,8 @@ import database.Column;
 import database.DatabasePackage;
 import database.Table;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -122,14 +117,14 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	protected boolean primaryKey = PRIMARY_KEY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFk() <em>Fk</em>}' reference list.
+	 * The cached value of the '{@link #getFk() <em>Fk</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFk()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Column> fk;
+	protected Column fk;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,11 +275,37 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Column> getFk() {
-		if (fk == null) {
-			fk = new EObjectResolvingEList<Column>(Column.class, this, DatabasePackage.COLUMN__FK);
+	public Column getFk() {
+		if (fk != null && fk.eIsProxy()) {
+			InternalEObject oldFk = (InternalEObject)fk;
+			fk = (Column)eResolveProxy(oldFk);
+			if (fk != oldFk) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatabasePackage.COLUMN__FK, oldFk, fk));
+			}
 		}
 		return fk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Column basicGetFk() {
+		return fk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFk(Column newFk) {
+		Column oldFk = fk;
+		fk = newFk;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__FK, oldFk, fk));
 	}
 
 	/**
@@ -350,7 +371,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case DatabasePackage.COLUMN__PRIMARY_KEY:
 				return isPrimaryKey();
 			case DatabasePackage.COLUMN__FK:
-				return getFk();
+				if (resolve) return getFk();
+				return basicGetFk();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,7 +382,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -380,8 +401,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				setPrimaryKey((Boolean)newValue);
 				return;
 			case DatabasePackage.COLUMN__FK:
-				getFk().clear();
-				getFk().addAll((Collection<? extends Column>)newValue);
+				setFk((Column)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,7 +431,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				setPrimaryKey(PRIMARY_KEY_EDEFAULT);
 				return;
 			case DatabasePackage.COLUMN__FK:
-				getFk().clear();
+				setFk((Column)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -436,7 +456,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case DatabasePackage.COLUMN__PRIMARY_KEY:
 				return primaryKey != PRIMARY_KEY_EDEFAULT;
 			case DatabasePackage.COLUMN__FK:
-				return fk != null && !fk.isEmpty();
+				return fk != null;
 		}
 		return super.eIsSet(featureID);
 	}

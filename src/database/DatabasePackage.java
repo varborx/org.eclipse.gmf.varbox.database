@@ -214,7 +214,7 @@ public interface DatabasePackage extends EPackage {
 	int COLUMN__PRIMARY_KEY = 4;
 
 	/**
-	 * The feature id for the '<em><b>Fk</b></em>' reference list.
+	 * The feature id for the '<em><b>Fk</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -382,10 +382,10 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getColumn_PrimaryKey();
 
 	/**
-	 * Returns the meta object for the reference list '{@link database.Column#getFk <em>Fk</em>}'.
+	 * Returns the meta object for the reference '{@link database.Column#getFk <em>Fk</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Fk</em>'.
+	 * @return the meta object for the reference '<em>Fk</em>'.
 	 * @see database.Column#getFk()
 	 * @see #getColumn()
 	 * @generated
@@ -526,7 +526,7 @@ public interface DatabasePackage extends EPackage {
 		EAttribute COLUMN__PRIMARY_KEY = eINSTANCE.getColumn_PrimaryKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Fk</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Fk</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

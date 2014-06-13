@@ -199,46 +199,7 @@ public class DatabaseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateColumn(Column column, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(column, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(column, diagnostics, context);
-		if (result || diagnostics != null) result &= validateColumn_FKreferPK(column, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the FKreferPK constraint of '<em>Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String COLUMN__FKREFER_PK__EEXPRESSION = "fk.PrimaryKey = true";
-
-	/**
-	 * Validates the FKreferPK constraint of '<em>Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateColumn_FKreferPK(Column column, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DatabasePackage.Literals.COLUMN,
-				 column,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "FKreferPK",
-				 COLUMN__FKREFER_PK__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
+		return validate_EveryDefaultConstraint(column, diagnostics, context);
 	}
 
 	/**

@@ -333,7 +333,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEReference(getColumn_Table(), this.getTable(), this.getTable_Columns(), "table", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_NotNull(), ecorePackage.getEBoolean(), "NotNull", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_PrimaryKey(), ecorePackage.getEBoolean(), "PrimaryKey", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColumn_Fk(), this.getColumn(), null, "fk", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Fk(), this.getColumn(), null, "fk", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -372,12 +372,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		   source, 
 		   new String[] {
 			 "constraints", "uniqueColumnName"
-		   });			
-		addAnnotation
-		  (columnEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "FKreferPK"
 		   });	
 	}
 
@@ -400,12 +394,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		   source, 
 		   new String[] {
 			 "uniqueColumnName", "columns->forAll(column1, column2 | column1 <> column2 implies column1.name <> column2.name)"
-		   });			
-		addAnnotation
-		  (columnEClass, 
-		   source, 
-		   new String[] {
-			 "FKreferPK", "fk.PrimaryKey = true"
 		   });
 	}
 
